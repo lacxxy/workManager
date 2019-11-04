@@ -4,14 +4,11 @@
   <time-table></time-table>
 
   <view class="index-bottom">
-    <text>作业提醒</text>
-    <scroll-view class="work">
-      <work-item></work-item>
-      <work-item></work-item>
-      <work-item></work-item>
-      <work-item></work-item>
-      <work-item></work-item>
-      <work-item></work-item>
-    </scroll-view>
+    <text class="bottom-title">作业提醒</text>
+    <view class="work">
+      <work-item myHeight="{{itemHeight}}"></work-item>
+      <work-item myHeight="{{itemHeight}}"></work-item>
+      <work-item myHeight="{{itemHeight}}"></work-item>
+    </view>
   </view>
 </view>

@@ -13,10 +13,24 @@ ladder {
   z-index: 0;
 }
 .index-bottom{
+  flex:1;
   display:flex;
   color:black;
   flex-direction:column;
 }
+.bottom-title{
+  margin-top:10rpx;
+  text-align:center;
+  font-weight:400;
+  font-size:30rpx;
+}
 .work{
-  height:600rpx;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-item:center;
+  justify-content:space-around;
+}
+work-item{
+  margin:0 auto;
 }
