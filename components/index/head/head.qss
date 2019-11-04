@@ -1,0 +1,34 @@
+.head {
+  padding-top: 40rpx;
+  position:relative;
+  z-index:1;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+.head-left {
+  display: flex;
+  flex-direction: column;
+}
+.divLine {
+  background: #e0e3da;
+  width: 2rpx;
+  opacity: 0.5;
+}
+.head-right {
+  display: flex;
+  flex-direction: column;
+}
+.temp-left {
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  justify-content: center;
+  opacity: 0.6;
+}
+.temp {
+  display: flex;
+}
+.now-temp {
+  font-size: 80rpx;
+}

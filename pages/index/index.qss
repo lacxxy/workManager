@@ -1,0 +1,22 @@
+.index {
+  display:flex;
+  flex-direction:column;
+  positon: relative;
+  height:calc(100vh - 96rpx);
+  top: 0;
+  left: 0;
+  overflow:hidden;
+  background:rgb(237,237,237);
+}
+ladder {
+  position: absolute;
+  z-index: 0;
+}
+.index-bottom{
+  display:flex;
+  color:black;
+  flex-direction:column;
+}
+.work{
+  height:600rpx;
+}

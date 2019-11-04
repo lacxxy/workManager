@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ladder":"/components/index/ladder/ladder",
+    "head":"/components/index/head/head",
+    "time-table":"/components/index/timeTable/timeTable",
+    "work-item":"/components/index/work-item/work-item"
+  }
+}
