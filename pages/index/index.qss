@@ -1,36 +1,39 @@
 .index {
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   positon: relative;
-  height:calc(100vh - 96rpx);
+  height: calc(100vh - 96rpx);
   top: 0;
   left: 0;
-  overflow:hidden;
-  background:rgb(237,237,237);
+  overflow: hidden;
+  background: rgb(237, 237, 237);
 }
 ladder {
   position: absolute;
   z-index: 0;
 }
-.index-bottom{
+.proj-block{
   flex:1;
-  display:flex;
-  color:black;
-  flex-direction:column;
 }
-.bottom-title{
-  margin-top:10rpx;
-  text-align:center;
-  font-weight:400;
-  font-size:30rpx;
-}
-.work{
+.index-bottom {
+  display: flex;
+  color: black;
+  flex-direction: column;
   flex:1;
-  display:flex;
-  flex-direction:column;
-  align-item:center;
-  justify-content:space-around;
 }
-work-item{
-  margin:0 auto;
+.bottom-title {
+  margin-top: 10rpx;
+  text-align: center;
+  font-weight: 400;
+  font-size: 30rpx;
+}
+.work {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-item: center;
+  justify-content: space-around;
+}
+work-item {
+  margin: 0 auto;
 }

@@ -1,6 +1,6 @@
 Component({
   data: {
-    itemHeight: Number,
+    //itemHeight: Number,
   },
   pageLifetimes: {
     show() {
@@ -14,7 +14,7 @@ Component({
     }
   },
   ready: function () {
-    var that = this;
+    /*var that = this;
     var query = qq.createSelectorQuery();
     query.select('.work').boundingClientRect(function (res) {
       console.log(res);
@@ -22,6 +22,6 @@ Component({
         itemHeight: res.height / 3.5
       })
       console.log(that.data)
-    }).exec();
+    }).exec();*/
   }
 })

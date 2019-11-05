@@ -1,7 +1,8 @@
 .head {
-  padding-top: 40rpx;
+  padding-top: 20rpx;
   position:relative;
   z-index:1;
+  flex:1;
   display: flex;
   justify-content: space-around;
   color: white;
@@ -9,6 +10,7 @@
 .head-left {
   display: flex;
   flex-direction: column;
+  font-size:35rpx;
 }
 .divLine {
   background: #e0e3da;
@@ -17,18 +19,20 @@
 }
 .head-right {
   display: flex;
+  font-size:35rpx;
   flex-direction: column;
 }
 .temp-left {
   display: flex;
   flex-direction: column;
-  font-size: 30rpx;
+  font-size: 25rpx;
   justify-content: center;
   opacity: 0.6;
 }
 .temp {
   display: flex;
+  justify-content:space-between;
 }
 .now-temp {
-  font-size: 80rpx;
+  font-size: 70rpx;
 }

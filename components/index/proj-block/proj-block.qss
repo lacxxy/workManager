@@ -1,0 +1,5 @@
+.proj-block{
+    background:red;
+    width:45%;
+    height:calc((25vh - 20rpx)/4);
+}

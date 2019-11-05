@@ -5,7 +5,7 @@
 .white-block2 {
     width: 90vw;
     margin-left: 5vw;
-    height: calc(30vh - 50rpx);
+    height: calc(25vh - 50rpx);
     margin-top: 20rpx;
     opacity: 0.8;
     position: absolute;
@@ -14,14 +14,15 @@
 .white-block3 {
     width: 84vw;
     margin-left: 8vw;
-    height: calc(30vh - 20rpx);
+    height: calc(25vh - 20rpx);
     position: relative;
     margin-top: 10rpx;
+    z-index:3;
     box-shadow: 0 0 20rpx rgb(180, 180, 180);
 }
 .white-block1 {
     width: 96vw;
-    height: calc(30vh - 80rpx);
+    height: calc(25vh - 80rpx);
     margin-left: 2vw;
     margin-top: 40rpx;
     opacity: 0.4;

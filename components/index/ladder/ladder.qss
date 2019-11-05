@@ -6,7 +6,7 @@
 .ladder-bottom{
   width:calc(100% - 20vh);
   height:0;
-  border-top:7vh #ff4c4d solid;
+  border-top:5vh #ff4c4d solid;
   border-left:10vh solid transparent;
   border-right:10vh solid transparent;
 }
