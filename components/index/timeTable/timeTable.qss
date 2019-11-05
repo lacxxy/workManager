@@ -17,8 +17,14 @@
     height: calc(25vh - 20rpx);
     position: relative;
     margin-top: 10rpx;
+    margin-bottom:10rpx;
     z-index:3;
     box-shadow: 0 0 20rpx rgb(180, 180, 180);
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    padding-top:20rpx;
 }
 .white-block1 {
     width: 96vw;

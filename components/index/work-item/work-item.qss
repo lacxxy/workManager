@@ -18,14 +18,14 @@
     text-align:center;
 }
 .title {
-    font-size:30rpx;
+    font-size:80%;
     overflow: hidden;
     text-overflow: ellipsis; 
     white-space: nowrap;
     margin:5rpx 30rpx;
 }
 .proj{
-    font-size:20rpx;
+    font-size:50%;
     margin:10rpx 30rpx;
     color:rgb(84,84,84);
 }
@@ -39,8 +39,9 @@
     align-item:center;
     justify-content:space-between;
     padding:10rpx 20rpx;
+    overflow:scroll;
 }
 .time{
     color:rgb(183,183,183);
-    font-size:20rpx;
+    font-size:60%;
 }

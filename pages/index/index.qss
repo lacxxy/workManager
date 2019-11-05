@@ -12,14 +12,12 @@ ladder {
   position: absolute;
   z-index: 0;
 }
-.proj-block{
-  flex:1;
-}
 .index-bottom {
   display: flex;
   color: black;
   flex-direction: column;
   flex:1;
+  overflow:scroll;
 }
 .bottom-title {
   margin-top: 10rpx;
@@ -27,13 +25,6 @@ ladder {
   font-weight: 400;
   font-size: 30rpx;
 }
-.work {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-item: center;
-  justify-content: space-around;
-}
 work-item {
-  margin: 0 auto;
+  margin: 10rpx auto;
 }

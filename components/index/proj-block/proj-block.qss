@@ -1,5 +1,28 @@
-.proj-block{
-    background:red;
-    width:45%;
-    height:calc((25vh - 20rpx)/4);
+proj-block {
+    height: calc((25vh - 20rpx) / 4);
+    display:flex;
+    justify-content:center;
+}
+
+.proj-block {
+    height: calc((25vh - 20rpx) / 4);
+    display:flex;
+    border-radius:4rpx;
+}
+.left{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    font-size:50%;
+    margin-right:30rpx;
+    margin-left:5rpx;
+    color:white;
+}
+.right{
+    font-size:65%;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
 }
