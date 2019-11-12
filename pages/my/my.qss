@@ -1,0 +1,29 @@
+.my {
+    height: 100%;
+    width:100vw;
+    overflow:hidden;
+}
+.head {
+    height: 28vh;
+    background:#ff4c4d;
+    border-bottom-right-radius:100%;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.mes{
+    display:flex;
+    flex-direction:column;
+    color:white;
+    justify-content:center;
+}
+.smaller{
+    margin:5rpx 0;
+    font-size:20rpx;
+}
+.avatar{
+    width:15vh;
+    height:15vh;
+    border-radius:15vh;
+    background:black;
+}

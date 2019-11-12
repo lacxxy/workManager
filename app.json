@@ -1,32 +1,43 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ff4c4d",
     "navigationBarTitleText": "作业小助手",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "custom":true,
-    "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
+    "color": "#000000",
+    "selectedColor": "#ff4c4d",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath":"assets/index.png",
-        "selectedIconPath":"assets/index.png"
+        "iconPath": "assets/index.png",
+        "selectedIconPath": "assets/index-active.png"
       },
       {
         "pagePath": "pages/logs/logs",
+        "text": "课表",
+        "iconPath": "assets/classTable.png",
+        "selectedIconPath": "assets/classTable-active.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "作业",
+        "iconPath": "assets/work.png",
+        "selectedIconPath": "assets/work-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath":"assets/my.png",
-        "selectedIconPath":"assets/my.png"
+        "iconPath": "assets/my.png",
+        "selectedIconPath": "assets/my-active.png"
       }
     ]
   }

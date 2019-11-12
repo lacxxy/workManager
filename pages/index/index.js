@@ -2,17 +2,6 @@ Component({
   data: {
     //itemHeight: Number,
   },
-  pageLifetimes: {
-    show() {
-      if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-        console.log("???")
-        this.getTabBar().setData({
-          selected: 0
-        })
-      }
-    }
-  },
   ready: function () {
     var that = this;
     qq.login({
@@ -29,6 +18,24 @@ Component({
             header: {
               "Content-Type": "application/x-www-form-urlencoded"
             },
+            success: function (data) {
+              console.log(data.header['Set-Cookie'])
+              qq.setStorageSync('openid', data.data.data);
+              qq.request({
+                url:'http://39.108.118.180:8080/tasks/task',
+                header: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              'sessionId':c
+            },
+                data:{
+                  openId:7844,
+                  taskId:7844
+                 /* type:4,
+                  offset:0,
+                  limit:3,*/
+                }
+              })        
+            }
           })
         } else {
           console.log('登录失败！' + res.errMsg)
