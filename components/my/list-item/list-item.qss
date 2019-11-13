@@ -1,0 +1,9 @@
+.list-item{
+    display:flex;
+    justify-content:space-between;
+    width:70vw;
+    padding:15rpx;
+    border-bottom:2rpx rgb(200,200,200) solid;
+    margin:0 auto;
+    font-size:34rpx;
+}

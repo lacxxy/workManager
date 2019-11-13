@@ -19,24 +19,35 @@ Component({
               "Content-Type": "application/x-www-form-urlencoded"
             },
             success: function (data) {
-              console.log(data.header['Set-Cookie'])
-              qq.setStorageSync('openid', data.data.data);
+              console.log(data.data.data.sessionId)
+              qq.setStorageSync('sessionId', data.data.data.sessionId);
+              qq.setStorageSync('openId', data.data.data.openId);
               qq.request({
-                url:'http://39.108.118.180:8080/tasks/task',
+                url: `http://39.108.118.180:8080/tasks/id`,
                 header: {
-              "Content-Type": "application/x-www-form-urlencoded",
-              'sessionId':c
-            },
-                data:{
-                  openId:7844,
-                  taskId:7844
-                 /* type:4,
-                  offset:0,
-                  limit:3,*/
+                  "Content-Type": "application/x-www-form-urlencoded",
+                  'sessionId': qq.getStorageSync('sessionId')
+                },
+                data: {
+                   type:0,
+                   offset:0,
+                   limit:3,
                 }
-              })        
+              })
+              qq.request({
+                url:'http://39.108.118.180:8080/courses/week',
+                header: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                  'sessionId': qq.getStorageSync('sessionId')
+                },
+                data: {
+                   
+                }
+              })
             }
-          })
+          }
+          
+          )
         } else {
           console.log('登录失败！' + res.errMsg)
         }

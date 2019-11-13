@@ -27,3 +27,9 @@
     border-radius:15vh;
     background:black;
 }
+.menu{
+    height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+}
