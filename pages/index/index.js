@@ -1,12 +1,54 @@
+var util=require("../../utils/util.js");
 Component({
   data: {
-    thisWeek: 0
+    thisWeek: 0,
+    todayCourse: [],
+    today:{
+
+    }
+  },
+  methods: {
+    sortCourse: function () {
+      let d = this.data.todayCourse;
+      d.sort((item1, item2) => {
+        return item1.fromTime - item2.fromTime
+      });
+      if (d[0].fromTime != 1) {
+        d.unshift({ fromTime: 1, toTime: 2 })
+      }
+      if (d[d.length - 1].fromTime < 9) {
+        for (let i = d[d.length - 1].toTime + 1; i < 8; i = i + 2) {
+          d.push({ fromTime: i, toTime: i + 1 })
+        }
+        d.push({ fromTime: 9, toTime: 12 })
+      }
+      for (let i = 0; i < d.length - 1; i++) {
+        let num = d[i + 1].fromTime - d[i].toTime;
+        if (num > 1) {
+          console.log(123)
+          d.splice(i + 1, 0, {
+            fromTime: d[i].toTime + 1,
+            toTime: d[i].toTime + 2
+          })
+        }
+      }
+      this.setData({
+        todayCourse: d
+      })
+    },
+    getDate: function () {
+      let time = util.formatDate(new Date());
+      let date = util.getDates(1, time);
+      this.setData({
+        today:date[0]
+      })
+    }
   },
   ready: function () {
     var that = this;
+    that.getDate()
     qq.login({
       success(res) {
-        console.log(res)
         if (res.code) {
           // 发起网络请求
           qq.request({
@@ -23,9 +65,6 @@ Component({
               qq.setStorageSync('sessionId', res.sessionId);
               qq.setStorageSync('openId', res.openId);
               if (!res.isLogin) {
-                /*qq.switchTab({
-                  url: '/pages/my/my'
-                })*/
                 qq.request({
                   url: 'http://39.108.118.180:8080/user',
                   method: "PUT",
@@ -55,13 +94,17 @@ Component({
                 }
               })
               qq.request({
-                url: 'http://39.108.118.180:8080/courses/week',
+                url: 'http://39.108.118.180:8080/courses/day',
                 header: {
                   "Content-Type": "application/x-www-form-urlencoded",
                   'sessionId': qq.getStorageSync('sessionId')
                 },
-                data: {
-
+                success: function (res) {
+                  let course = res.data.data;
+                  that.setData({
+                    todayCourse: course
+                  });
+                  that.sortCourse()
                 }
               })
             }
@@ -73,5 +116,5 @@ Component({
         }
       }
     })
-  }
+  },
 })

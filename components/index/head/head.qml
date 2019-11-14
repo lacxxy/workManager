@@ -1,7 +1,7 @@
 <view class="head"
     ><view class="head-left">
-        <text>2019/11/01 Fri</text>
-        <text>第 9 周</text>
+        <text>{{today.time}} {{today.week}}</text>
+        <text>第 {{week}} 周</text>
         <text>今日课程</text>
     </view>
 

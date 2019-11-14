@@ -1,10 +1,10 @@
-<view class="proj-block" style="width:{{myWidth}}vw;background:{{myColor}}">
+<view class="proj-block" style="width:{{(dataArray.toTime-dataArray.fromTime)>1?80:37}}vw;background:{{color}}">
     <view class="left">
-        <text>1</text>
-        <text>1</text>
+        <text>{{dataArray.fromTime}}</text>
+        <text>{{dataArray.toTime}}</text>
     </view>
     <view class="right">
-        <text>高等数学</text>
-        <text>西2-202</text>
+        <text>{{dataArray.name}}</text>
+        <text>{{dataArray.place}}</text>
     </view>
 </view>
