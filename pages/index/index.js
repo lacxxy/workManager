@@ -1,6 +1,6 @@
 Component({
   data: {
-    //itemHeight: Number,
+    thisWeek: 0
   },
   ready: function () {
     var that = this;
@@ -19,9 +19,29 @@ Component({
               "Content-Type": "application/x-www-form-urlencoded"
             },
             success: function (data) {
-              console.log(data.data.data.sessionId)
-              qq.setStorageSync('sessionId', data.data.data.sessionId);
-              qq.setStorageSync('openId', data.data.data.openId);
+              let res = data.data.data;
+              qq.setStorageSync('sessionId', res.sessionId);
+              qq.setStorageSync('openId', res.openId);
+              if (!res.isLogin) {
+                /*qq.switchTab({
+                  url: '/pages/my/my'
+                })*/
+                qq.request({
+                  url: 'http://39.108.118.180:8080/user',
+                  method: "PUT",
+                  header: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    'sessionId': qq.getStorageSync('sessionId')
+                  },
+                  data: {
+                    account: '031702635',
+                    pwd: '2375468369zh'
+                  }
+                })
+              }
+              that.setData({
+                thisWeek: res.curWeek,
+              })
               qq.request({
                 url: `http://39.108.118.180:8080/tasks/id`,
                 header: {
@@ -29,40 +49,29 @@ Component({
                   'sessionId': qq.getStorageSync('sessionId')
                 },
                 data: {
-                   type:0,
-                   offset:0,
-                   limit:3,
+                  type: 0,
+                  offset: 0,
+                  limit: 3,
                 }
               })
               qq.request({
-                url:'http://39.108.118.180:8080/courses/week',
+                url: 'http://39.108.118.180:8080/courses/week',
                 header: {
                   "Content-Type": "application/x-www-form-urlencoded",
                   'sessionId': qq.getStorageSync('sessionId')
                 },
                 data: {
-                   
+
                 }
               })
             }
           }
-          
+
           )
         } else {
           console.log('登录失败！' + res.errMsg)
         }
       }
     })
-    /*qq.request({
-      url: 'http://39.108.118.180:8080/course',
-      method: "POST",
-      data: {
-        account: '031702635',
-        pwd: '2375468369zh'
-      },
-      success: function (res) {
-        console.log(res)
-      }
-    })*/
   }
 })

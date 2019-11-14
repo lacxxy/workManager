@@ -22,5 +22,6 @@ Component({
     ]
   },
   ready: function () {
+  
   }
 })

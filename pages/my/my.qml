@@ -6,7 +6,9 @@
             <text class="smaller">计算机6班</text>
         </view>
 
-        <image src="../.././assets/index.png" class="avatar"></image>
+        <view class="avatar">
+            <open-data type="userAvatarUrl"></open-data>
+        </view>
     </view>
 
     <view class="menu">
