@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "headBar":"../../components/work/headBar/headBar",
+      "item":"../../components/work/item/item"
+  }
+}

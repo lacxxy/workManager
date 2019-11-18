@@ -1,12 +1,16 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/work/work",
+    "pages/my/my",
+    "pages/my/login/login",
+    "pages/work/photo/photo"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ff4c4d",
-    "navigationBarTitleText": "作业小助手",
+    "navigationBarTitleText": "福大小本本",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -28,7 +32,7 @@
         "selectedIconPath": "assets/classTable-active.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/work/work",
         "text": "作业",
         "iconPath": "assets/work.png",
         "selectedIconPath": "assets/work-active.png"

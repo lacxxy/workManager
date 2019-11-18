@@ -2,10 +2,11 @@
     width: 95vw;
     display: flex;
     flex-direction: column;
-    background:linear-gradient(to right, rgb(90,178,250) , rgb(129,214,240));
+    background:linear-gradient(to right, rgb(58,178,228) , rgb(129,215,240));
     border-radius:15rpx;
     box-shadow: 0 0 20rpx rgb(180, 180, 180);
     color:white;
+    height:15vh;
 }
 .attention{
     width:15vw;
@@ -15,10 +16,12 @@
     margin-bottom:5rpx;
     border-top-left-radius:15rpx;
     border-bottom-right-radius:15rpx;
-    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 .title {
-    font-size:80%;
+    font-size:85%;
     overflow: hidden;
     text-overflow: ellipsis; 
     white-space: nowrap;
@@ -34,10 +37,11 @@
     background:rgb(250,250,250);
 }
 .bottom{
+    flex:1;
     display:flex;
-    align-item:center;
+    align-items:center;
     justify-content:space-between;
-    padding:10rpx 20rpx;
+    padding:0 20rpx;
     overflow:scroll;
 }
 .time{

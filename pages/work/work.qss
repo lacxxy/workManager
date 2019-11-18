@@ -1,0 +1,23 @@
+.work{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    positon:relative;
+}
+.work-area{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+}
+.page{
+    width:200rpx;
+}
+.add{
+    position: absolute;
+    bottom:30rpx;
+    right:30rpx;
+    width:100rpx;
+    height:100rpx;
+}

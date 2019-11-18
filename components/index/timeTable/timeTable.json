@@ -1,3 +1,6 @@
 {
-    "component":true
+    "component": true,
+    "usingComponents": {
+        "proj-block": "/components/index/proj-block/proj-block"
+    }
 }

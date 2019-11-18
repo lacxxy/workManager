@@ -1,9 +1,13 @@
-var util=require("../../utils/util.js");
+var util = require("../../utils/util.js");
 Component({
   data: {
     thisWeek: 0,
     todayCourse: [],
-    today:{
+    course:[],
+    today: {
+
+    },
+    weather: {
 
     }
   },
@@ -40,13 +44,32 @@ Component({
       let time = util.formatDate(new Date());
       let date = util.getDates(1, time);
       this.setData({
-        today:date[0]
+        today: date[0]
+      })
+    },
+    getWhether: function () {
+      let that=this;
+      qq.request({
+        url: 'http://wthrcdn.etouch.cn/weather_mini?city=福州',
+        success: function (res) {
+          let data = res.data.data;
+          that.setData({
+            weather: {
+              city: data.city,
+              high: data.forecast[0].high,
+              low: data.forecast[0].low,
+              type: data.forecast[0].type,
+              now: data.wendu
+            }
+          })
+        }
       })
     }
   },
   ready: function () {
     var that = this;
-    that.getDate()
+    that.getDate();
+    that.getWhether();
     qq.login({
       success(res) {
         if (res.code) {
@@ -94,7 +117,7 @@ Component({
                 }
               })
               qq.request({
-                url: 'http://39.108.118.180:8080/courses/day',
+                url: 'http://39.108.118.180:8080/courses/week',
                 header: {
                   "Content-Type": "application/x-www-form-urlencoded",
                   'sessionId': qq.getStorageSync('sessionId')
@@ -102,9 +125,9 @@ Component({
                 success: function (res) {
                   let course = res.data.data;
                   that.setData({
-                    todayCourse: course
+                    course: course
                   });
-                  that.sortCourse()
+                  //that.sortCourse()
                 }
               })
             }

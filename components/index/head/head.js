@@ -5,6 +5,9 @@ Component({
         },
         today:{
             type:Object
+        },
+        weather:{
+            type:Object
         }
     }
 });

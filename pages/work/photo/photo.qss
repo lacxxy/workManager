@@ -1,0 +1,19 @@
+.btn{
+    width:85%;
+    margin:45rpx auto;
+    height:50rpx;
+    font-size:40rpx;
+    padding:14rpx 0;
+    text-align:center;
+    border-radius:60rpx;
+    background:rgb(253,140,140);
+    border:0;
+    color:white;
+    box-shadow: 0 0 20rpx rgb(180, 180, 180);
+}
+.btn:hover{
+    background:rgb(253,120,120);
+}
+.btn:active{
+    background:rgb(253,100,100);
+}

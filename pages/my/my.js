@@ -3,6 +3,7 @@ Component({
     menu: [
       {
         'title': '身份认证',
+        'url': 'login/login'
       },
       {
         'title': '更换配色',
@@ -22,6 +23,16 @@ Component({
     ]
   },
   ready: function () {
-  
+    qq.request({
+      url: 'http://39.108.118.180:8080/user',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        'sessionId': qq.getStorageSync('sessionId')
+      },
+      success:function(res){
+        let data=res.data;
+        console.log(data)
+      }
+    })
   }
 })

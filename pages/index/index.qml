@@ -1,8 +1,7 @@
 <view class="index">
   <ladder></ladder>
-  <head week="{{thisWeek}}" today="{{today}}"></head>
-  <time-table>
-    <proj-block qq:for="{{todayCourse}}" qq:key="{{index}}" dataArray="{{item}}"></proj-block>
+  <head week="{{thisWeek}}" today="{{today}}" weather="{{weather}}"></head>
+  <time-table course="{{course}}">
   </time-table>
   <text class="bottom-title">作业提醒</text>
   <view class="index-bottom">

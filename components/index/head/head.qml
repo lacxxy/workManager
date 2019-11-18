@@ -8,14 +8,14 @@
     <view class="divLine"></view>
 
     <view class="head-right">
-        <text>旗山校区 | 多云</text>
+        <text>{{weather.city}} | {{weather.type}}</text>
         <view class="temp">
             <view class="temp-left">
-                <text>低温 16℃</text>
-                <text>高温 27℃</text>
+                <text>{{weather.low}}</text>
+                <text>{{weather.high}}</text>
             </view>
             <view class="temp-right">
-                <text class="now-temp">23</text>
+                <text class="now-temp">{{weather.now}}</text>
                 <text>℃</text>
             </view>
         </view>

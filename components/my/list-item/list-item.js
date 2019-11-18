@@ -4,6 +4,13 @@ Component({
             type: Object
         }
     },
+    methods: {
+        routergo() {
+            qq.navigateTo({
+                url: this.properties.arr.url
+            })
+        }
+    },
     ready: function () {
         qq.getSetting({
             success(res) {

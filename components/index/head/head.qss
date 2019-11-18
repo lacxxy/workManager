@@ -28,6 +28,7 @@
   font-size: 25rpx;
   justify-content: center;
   opacity: 0.6;
+  margin-right:10rpx;
 }
 .temp {
   display: flex;

@@ -1,0 +1,32 @@
+.item{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    color:white;
+    background:linear-gradient(to right, rgb(58,178,228) , rgb(129,215,240));
+    width:95vw;
+    height:13vh;
+    margin:0 auto;
+    border-radius:24rpx;
+    padding:27rpx 0;
+}
+.proj{
+    margin:0 34rpx;
+    font-size:60%;
+    opacity:.8;
+}
+.list-item{
+    display:flex;
+    align-items:center;
+    margin:0 34rpx;
+}
+.title{
+    font-size:90%;
+}
+.point{
+    width:16rpx;
+    height:16rpx;
+    border-radius:50%; 
+    margin-right:14rpx;
+    background:white;
+}
