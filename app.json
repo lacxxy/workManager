@@ -4,8 +4,7 @@
     "pages/logs/logs",
     "pages/work/work",
     "pages/my/my",
-    "pages/my/login/login",
-    "pages/work/photo/photo"
+    "pages/my/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",

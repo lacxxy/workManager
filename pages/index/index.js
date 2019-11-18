@@ -12,32 +12,15 @@ Component({
     }
   },
   methods: {
-    sortCourse: function () {
-      let d = this.data.todayCourse;
-      d.sort((item1, item2) => {
-        return item1.fromTime - item2.fromTime
-      });
-      if (d[0].fromTime != 1) {
-        d.unshift({ fromTime: 1, toTime: 2 })
-      }
-      if (d[d.length - 1].fromTime < 9) {
-        for (let i = d[d.length - 1].toTime + 1; i < 8; i = i + 2) {
-          d.push({ fromTime: i, toTime: i + 1 })
-        }
-        d.push({ fromTime: 9, toTime: 12 })
-      }
-      for (let i = 0; i < d.length - 1; i++) {
-        let num = d[i + 1].fromTime - d[i].toTime;
-        if (num > 1) {
-          console.log(123)
-          d.splice(i + 1, 0, {
-            fromTime: d[i].toTime + 1,
-            toTime: d[i].toTime + 2
-          })
-        }
-      }
-      this.setData({
-        todayCourse: d
+    sortCourse:function(){
+      let that=this;
+      let d=that.data.course;
+      let arr=[[],[],[],[],[],[],[]];
+      d.forEach(item=>{
+        arr[item.day-1].push(item);
+      })
+      that.setData({
+        course:arr
       })
     },
     getDate: function () {
@@ -127,7 +110,7 @@ Component({
                   that.setData({
                     course: course
                   });
-                  //that.sortCourse()
+                  that.sortCourse()
                 }
               })
             }

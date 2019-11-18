@@ -1,5 +1,8 @@
 Component({
   data: {
+    mes:{
+
+    },
     menu: [
       {
         'title': '身份认证',
@@ -23,6 +26,7 @@ Component({
     ]
   },
   ready: function () {
+    let that=this;
     qq.request({
       url: 'http://39.108.118.180:8080/user',
       header: {
@@ -30,8 +34,11 @@ Component({
         'sessionId': qq.getStorageSync('sessionId')
       },
       success:function(res){
-        let data=res.data;
-        console.log(data)
+        let data=res.data.data;
+        console.log(data);
+        that.setData({
+          mes:data
+        })
       }
     })
   }

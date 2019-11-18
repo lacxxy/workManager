@@ -1,11 +1,13 @@
 <view class="timeTable">
     <view class="white-block white-block1"></view>
     <view class="white-block white-block2"></view>
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <view class="white-block white-block3" qq:for="{{course}}">
-            <swiper-item>
-                <proj-block qq:for="{{course}}" qq:key="{{index}}" dataArray="{{item}}"></proj-block>
-            </swiper-item>
-        </view>
+    <swiper class="swp" previous-margin="0rpx" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <!--view class="white-block white-block3" qq:for="{{courseArray}}" qq:for-item="item1"-->
+            <block qq:for="{{courseArray}}" qq:for-item="item1">
+                <swiper-item class="white-block white-block3">
+                    <proj-block qq:for="{{item1}}" qq:for-item="item2" qq:key="{{index2}}" dataArray="{{item2}}"></proj-block>
+                </swiper-item>
+            </block>
+        <!--/view-->
     </swiper>
 </view>

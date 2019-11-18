@@ -1,9 +1,9 @@
 <view class="my">
     <view class="head">
         <view class="mes">
-            <text>彭于晏</text>
-            <text class="smaller">数学与计算机科学学院</text>
-            <text class="smaller">计算机6班</text>
+            <text>{{mes.name}}</text>
+            <text class="smaller">{{mes.major}}</text>
+            <text class="smaller">{{mes.major}}{{mes.place}}班</text>
         </view>
 
         <view class="avatar">
