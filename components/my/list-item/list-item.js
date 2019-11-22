@@ -6,9 +6,61 @@ Component({
     },
     methods: {
         routergo() {
-            qq.navigateTo({
-                url: this.properties.arr.url
-            })
+            if (this.properties.arr.url == 'color') {
+                qq.showActionSheet({
+                    itemList: ['亮色主题', '暗色主题'],
+                    success(res) {
+                        if (res.tapIndex == 0) {
+                            qq.setTabBarStyle({
+                                color: "#000000",
+                                selectedColor: "#ff4c4d",
+                                borderStyle: "black",
+                                backgroundColor: "#ffffff",
+                            })
+                        }
+                        if (res.tapIndex == 1) {
+                            qq.setTabBarStyle({
+                                color: '#FFFFFF',
+                                selectedColor: '#FF0000',
+                                backgroundColor: '#000000',
+                                borderStyle: 'white'
+                            })
+                        }
+                    },
+                    fail(res) {
+                        console.log(res.errMsg)
+                    }
+                })
+            }
+            else if (this.properties.arr.url == 'about') {
+                qq.showModal({
+                    title: '福州大学',
+                    content: '阿布，蔡志斌，陈郑铧 仅供交流学习',
+                    showCancel: false
+                })
+            } else if (this.properties.arr.url == 'clear') {
+                qq.clearStorage({
+                    success() {
+                        qq.showToast({
+                            title: '成功',
+                            icon: 'success',
+                            duration: 2000
+                        })
+                    },
+                    fail() {
+                        qq.showToast({
+                            title: '失败',
+                            icon: 'fail',
+                            duration: 2000
+                        })
+                    }
+                })
+            }
+            else {
+                qq.navigateTo({
+                    url: this.properties.arr.url
+                })
+            }
         }
     },
     ready: function () {

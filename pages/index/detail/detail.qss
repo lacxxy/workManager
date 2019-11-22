@@ -1,0 +1,59 @@
+.detail{
+    height:100vh;
+    overflow:hidden;
+}
+.head {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3vh;
+    background: rgb(254, 122, 122);
+    border-radius: 20rpx;
+    font-size: 32rpx;
+    padding: 18rpx;
+}
+.title{
+    color:white;
+    font-size:40rpx;
+}
+.time{
+    color:white;
+    font-size:30rpx;
+}
+.content{
+    width:100%;
+    overflow:scroll;
+    height: 50vh;
+    border-bottom:2rpx white solid;
+    margin-bottom:20rpx;
+}
+.note{
+    margin:20rpx 0;
+}
+.btn-area{
+    margin-top:40rpx;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+.btn{
+    border-radius:18rpx;
+    color:white;
+    font-size:40rpx;
+    height:100rpx;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:20rpx 0;
+}
+.edt-btn{
+    width:40vw;
+    background:yellow;
+}
+.rmv-btn{
+    width:40vw;
+    background:red;
+}
+.done-btn{
+    width:88vw;
+    background:blue;
+}

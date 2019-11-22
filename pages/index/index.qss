@@ -12,20 +12,31 @@ ladder {
   position: absolute;
   z-index: 0;
 }
+.bottom{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  overflow-y:scroll;
+}
 .index-bottom {
   display: flex;
   color: black;
   flex-direction: column;
   justify-content:space-around;
   flex:1;
-  overflow:scroll;
+  //margin-top:-50rpx;
 }
 .bottom-title {
-  margin-top: 10rpx;
+  margin-top: 20rpx;
   text-align: center;
   font-weight: 400;
   font-size: 30rpx;
 }
 work-item {
   margin: 10rpx auto;
+}
+.more{
+  color:blue;
+  text-align:center;
+  font-size:30rpx;
 }

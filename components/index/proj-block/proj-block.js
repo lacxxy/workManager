@@ -16,8 +16,7 @@ Component({
     },
     methods: {
         getColor() {
-            console.log(this.properties.dataArray)
-            let index =0 //parseInt(this.properties.dataArray.fromTime / 2);
+            let index =parseInt(this.properties.dataArray.fromTime / 2);
             this.setData({
                 color: this.data.colorArray[index]
             })

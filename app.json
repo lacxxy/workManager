@@ -4,7 +4,10 @@
     "pages/logs/logs",
     "pages/work/work",
     "pages/my/my",
-    "pages/my/login/login"
+    "pages/my/login/login",
+    "pages/work/edit/edit",
+    "pages/index/detail/detail",
+    "pages/my/func/func"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,12 +26,6 @@
         "text": "首页",
         "iconPath": "assets/index.png",
         "selectedIconPath": "assets/index-active.png"
-      },
-      {
-        "pagePath": "pages/logs/logs",
-        "text": "课表",
-        "iconPath": "assets/classTable.png",
-        "selectedIconPath": "assets/classTable-active.png"
       },
       {
         "pagePath": "pages/work/work",

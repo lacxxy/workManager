@@ -1,11 +1,11 @@
 <view class="item"> 
-    <text class="proj">高等数学A | 2019/11/13</text>
+    <text class="proj">{{work.theme}} | {{work.endTime}}</text>
     <view class="list-item">
-        <view class="point"></view>
-        <text class="title">课表第33页第五题，第六题</text>
+        <view class="point" qq:if="{{content[0]}}"></view>
+        <text class="title">{{content[0]}}</text>
     </view>
-    <view class="list-item">
+    <view class="list-item" qq:if="{{content[1]}}">
         <view class="point"></view>
-        <text class="title">课表第33页第五题，第六题</text>
+        <text class="title">{{content[1]}}</text>
     </view>
 </view>

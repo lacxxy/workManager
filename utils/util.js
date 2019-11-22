@@ -29,6 +29,7 @@ function dateLater(dates, later) {
   let dayFormate = (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
   dateObj.time = yearDate + '/' + month + '/' + dayFormate;
   dateObj.week = show_day[day];
+  dateObj.index=day
   return dateObj;
 }
 

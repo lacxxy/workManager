@@ -16,6 +16,9 @@
     border-radius:60rpx;
 }
 .btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
     background:rgb(253,140,140);
     border:0;
     color:white;

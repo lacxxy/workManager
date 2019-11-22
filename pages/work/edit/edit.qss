@@ -1,0 +1,60 @@
+.edit {
+    height: 100vh;
+    overflow: hidden;
+}
+.head {
+    width: 90%;
+    height: 25vh;
+    margin: 0 auto;
+    margin-top: 3vh;
+    background: rgb(254, 122, 122);
+    overflow: scroll;
+    border-radius: 20rpx;
+    font-size: 32rpx;
+    padding: 18rpx;
+}
+.content {
+    width: 100%;
+}
+.hint {
+    margin: 10rpx 0;
+    font-size: 28rpx;
+    color: rgb(180, 180, 180);
+    display: block;
+    text-align: center;
+}
+.title {
+    color: rgb(180, 180, 180);
+}
+.picker {
+    width: 94%;
+    font-size: 43rpx;
+    padding-bottom: 10rpx;
+    margin: 35rpx auto;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2rpx rgb(180, 180, 180) solid;
+}
+.input{
+    text-align:right;
+}
+.btn {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 85%;
+    margin: 45rpx auto;
+    height: 90rpx;
+    font-size: 40rpx;
+    border-radius: 60rpx;
+    background: rgb(253, 140, 140);
+    border: 0;
+    color: white;
+    box-shadow: 0 0 20rpx rgb(180, 180, 180);
+}
+.btn:hover{
+    background:rgb(253,120,120);
+}
+.btn:active{
+    background:rgb(253,100,100);
+}

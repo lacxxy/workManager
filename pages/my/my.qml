@@ -2,7 +2,7 @@
     <view class="head">
         <view class="mes">
             <text>{{mes.name}}</text>
-            <text class="smaller">{{mes.major}}</text>
+            <text class="smaller">{{mes.colleage}}</text>
             <text class="smaller">{{mes.major}}{{mes.place}}班</text>
         </view>
 

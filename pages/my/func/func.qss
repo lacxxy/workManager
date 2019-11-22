@@ -1,0 +1,6 @@
+.func{
+    overflow:scroll;
+}
+.img{
+    width:100vw;
+}

@@ -10,18 +10,23 @@ Component({
       },
       {
         'title': '更换配色',
+        'url':'color'
       },
       {
         'title': '功能介绍',
+        'url':'/pages/my/func/func'
       },
       {
-        'title': '设置',
+        'title': '清除缓存',
+        'url':'clear'
       },
       {
-        'title': '联系作者',
+        'title': '分享',
+        'url':'share'
       },
       {
         'title': '关于我们',
+        'url':'about'
       }
     ]
   },
