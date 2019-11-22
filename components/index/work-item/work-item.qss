@@ -1,5 +1,6 @@
 .work-item {
     width: 95vw;
+    margin:0 auto;
     display: flex;
     flex-direction: column;
     background:linear-gradient(to right, rgb(58,178,228) , rgb(129,215,240));

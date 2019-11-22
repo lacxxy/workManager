@@ -70,7 +70,7 @@ Component({
         success(res) {
           let d = res.data.data;
           let l = d.length;
-          if (l == 0) { console.log("no") }
+          if (l == 0) { that.data.index--;}
           else {
             let arr = (that.data.work).concat(res.data.data);
             that.setData({
