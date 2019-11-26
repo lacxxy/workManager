@@ -8,7 +8,7 @@ Page({
         index: 0,
         weekDay: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
         weekArray: [
-            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
         ],
         nullArray: [
             { fromTime: 1, toTime: 2 },
@@ -75,7 +75,7 @@ Page({
 
                     d[i - 1] = arr;
                 }
-                let num = qq.getStorageSync('curWeek');
+                let num = qq.getStorageSync('curWeek')-1;
                 that.setData({
                     course: d,
                     nowIndex: num

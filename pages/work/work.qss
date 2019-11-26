@@ -4,6 +4,7 @@
     flex-direction:column;
     positon:relative;
     overflow:hidden;
+    background: rgb(237, 237, 237);
 }
 .index-bottom {
   display: flex;
@@ -45,7 +46,7 @@
 .logo{
     width:600rpx;
     height:600rpx;
-    opacity:.5;
+    
 }
 .please{
     margin-top:35rpx;

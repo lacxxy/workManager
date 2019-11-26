@@ -1,6 +1,6 @@
 <view class="table">
     <picker bindchange="bindPickerChange" value="{{nowIndex}}" range="{{weekArray}}">
-        <head num="{{nowIndex}}"></head>
+        <head num="{{weekArray[nowIndex]}}"></head>
     </picker>
     <swiper class="swp" bindchange="change" current="{{nowIndex}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <swiper-item class="swp-item" qq:for="{{course}}" qq:for-item="item">

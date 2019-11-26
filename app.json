@@ -37,8 +37,8 @@
       {
         "pagePath": "pages/table/table",
         "text": "课表",
-        "iconPath": "assets/work.png",
-        "selectedIconPath": "assets/work-active.png"
+        "iconPath": "assets/classTable.png",
+        "selectedIconPath": "assets/classTable-active.png"
       },
       {
         "pagePath": "pages/my/my",
