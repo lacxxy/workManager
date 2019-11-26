@@ -16,7 +16,7 @@ ladder {
   display:flex;
   flex-direction:column;
   justify-content:space-around;
-  flex:1;
+  min-height:100%;
   overflow-y:scroll;
 }
 .index-bottom {

@@ -1,20 +1,11 @@
+
 .white-block {
     background: rgb(245, 245, 245);
     border-radius: 12rpx;
 }
-.white-block2 {
-    width: 90vw;
-    margin-left: 5vw;
-    height: calc(25vh - 40rpx);
-    margin-top: 20rpx;
-    opacity: 0.8;
-    position: absolute;
-    z-index: 2;
-}
 .white-block3 {
     width: 84vw!important;
     margin-left: 8vw;
-    height: calc(25vh - 10rpx);
     position: absolute;
     margin-top: 10rpx;
     margin-bottom:10rpx;
@@ -26,17 +17,8 @@
     justify-content:space-around;
     align-items:center;
 }
-.white-block1 {
-    width: 96vw;
-    height: calc(25vh - 70rpx);
-    margin-left: 2vw;
-    margin-top: 40rpx;
-    opacity: 0.4;
-    position: absolute;
-    z-index: 2;
-}
 .swp{
-    width:92vw;
+    width:100vw;
     overflow:hidden;
     position:relative;
     z-index:1000;

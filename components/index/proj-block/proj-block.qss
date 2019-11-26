@@ -1,11 +1,12 @@
 proj-block {
-    height: calc((25vh - 20rpx) / 4);
+    //height: calc((28vh - 20rpx) / 4);
     display:flex;
     justify-content:center;
 }
 
 .proj-block {
-    height: calc((25vh - 20rpx) / 4);
+    position:relative;
+    height: 6vh;
     display:flex;
     border-radius:4rpx;
 }
@@ -22,7 +23,15 @@ proj-block {
 .right{
     font-size:65%;
     color:white;
+    width:80%;
     display:flex;
     flex-direction:column;
     justify-content:space-around;
+}
+.text {
+    font-size:100%;
+    width:100%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
 }

@@ -1,4 +1,4 @@
-Component({
+Page({
   data: {
     mes:{
 
@@ -26,14 +26,14 @@ Component({
       },
       {
         'title': '关于我们',
-        'url':'about'
+        'url':'/pages/my/about/about'
       }
     ]
   },
-  ready: function () {
+  onShow: function () {
     let that=this;
     qq.request({
-      url: 'http://39.108.118.180:8080/user',
+      url: 'https://xbb.fudaquan.cn:8080/user',
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
         'sessionId': qq.getStorageSync('sessionId')

@@ -15,6 +15,7 @@
 .icon{
     width:85%;
     position:absolute;
+    transition-duration: .3s;
 }
 .title{
     font-size:80%;

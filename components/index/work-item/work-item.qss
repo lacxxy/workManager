@@ -9,10 +9,9 @@
     color:white;
     height:15vh;
 }
-.attention{
+.sign{
     width:15vw;
     height:20%;
-    background:rgb(255,67,67);
     font-size:60%;
     margin-bottom:5rpx;
     border-top-left-radius:15rpx;
@@ -20,6 +19,12 @@
     display:flex;
     justify-content:center;
     align-items:center;
+}
+.attention{
+    background:rgb(255,67,67);
+}
+.done{
+    background:rgb(67,255,67);
 }
 .title {
     font-size:85%;

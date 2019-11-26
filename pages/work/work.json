@@ -1,6 +1,7 @@
 {
   "usingComponents": {
       "headBar":"../../components/work/headBar/headBar",
-      "item":"../../components/work/item/item"
+      "item":"../../components/work/item/item",
+      "loading":"../../../components/common/loading/loading"
   }
 }

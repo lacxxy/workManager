@@ -6,7 +6,7 @@
     width: 90%;
     margin: 0 auto;
     margin-top: 3vh;
-    background: rgb(254, 122, 122);
+    background: rgb(145, 217, 255);
     border-radius: 20rpx;
     font-size: 32rpx;
     padding: 18rpx;
@@ -18,10 +18,11 @@
 .time{
     color:white;
     font-size:30rpx;
+    float:right;
 }
 .content{
     width:100%;
-    overflow:scroll;
+    overflow-y:scroll;
     height: 50vh;
     border-bottom:2rpx white solid;
     margin-bottom:20rpx;
@@ -47,13 +48,13 @@
 }
 .edt-btn{
     width:40vw;
-    background:yellow;
+    background:rgb(255,196,107);
 }
 .rmv-btn{
     width:40vw;
-    background:red;
+    background:rgb(255,100,62);
 }
 .done-btn{
     width:88vw;
-    background:blue;
+    background:rgb(158,206,255);
 }

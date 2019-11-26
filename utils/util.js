@@ -27,13 +27,25 @@ function dateLater(dates, later) {
   let yearDate = date.getFullYear();
   let month = ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1);
   let dayFormate = (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
-  dateObj.time = yearDate + '/' + month + '/' + dayFormate;
+  dateObj.time = yearDate + '-' + month + '-' + dayFormate;
   dateObj.week = show_day[day];
   dateObj.index=day
   return dateObj;
 }
-
+function timeMinus(d1,d2){
+  var strSeparator = "-"; //日期分隔符
+       var oDate1;
+       var oDate2;
+       var iDays;
+       oDate1= d1.split(strSeparator);
+       oDate2= d2.split(strSeparator);
+       var strDateS = new Date(oDate1[0], oDate1[1]-1, oDate1[2]);
+       var strDateE = new Date(oDate2[0], oDate2[1]-1, oDate2[2]);
+       iDays = parseInt(Math.abs(strDateS - strDateE ) / 1000 / 60 / 60 /24);
+       return iDays;
+}
 module.exports = {
   formatDate: formatDate,
-  getDates: getDates
+  getDates: getDates,
+  timeMinus:timeMinus
 }

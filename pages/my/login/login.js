@@ -16,10 +16,8 @@ Component({
     },
     login() {
       let that = this;
-      const query = qq.createSelectorQuery();
-      console.log(query.select('.input-area'))
       qq.request({
-        url: 'http://39.108.118.180:8080/user',
+        url: 'https://xbb.fudaquan.cn:8080/user',
         method: "PUT",
         header: {
           "Content-Type": "application/x-www-form-urlencoded",

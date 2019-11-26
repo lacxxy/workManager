@@ -6,7 +6,7 @@
     background:linear-gradient(to right, rgb(58,178,228) , rgb(129,215,240));
     width:95vw;
     height:13vh;
-    margin:0 auto;
+    margin:2vh auto;
     border-radius:24rpx;
     padding:27rpx 0;
 }

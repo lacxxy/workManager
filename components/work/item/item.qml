@@ -1,4 +1,4 @@
-<view class="item"> 
+<view class="item" bindtap="routergo"> 
     <text class="proj">{{work.theme}} | {{work.endTime}}</text>
     <view class="list-item">
         <view class="point" qq:if="{{content[0]}}"></view>

@@ -8,13 +8,13 @@
     margin: 0 auto;
     margin-top: 3vh;
     background: rgb(254, 122, 122);
-    overflow: scroll;
     border-radius: 20rpx;
     font-size: 32rpx;
     padding: 18rpx;
 }
 .content {
     width: 100%;
+    min-height:100%;
 }
 .hint {
     margin: 10rpx 0;

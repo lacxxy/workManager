@@ -1,6 +1,7 @@
 <view class="edit">
+    <form report-submit="true" bindsubmit="save">
     <view class="head">
-        <textarea class="content" bindinput ="contentInput" value="{{content}}"></textarea>
+        <textarea maxlength="-1" class="content" bindinput ="contentInput" value="{{content}}"></textarea>
     </view>
     <text class="hint">(以上内容不准确？点击可手动编辑)</text>
 
@@ -20,7 +21,8 @@
             <text class="title">备注</text>
             <input type="text" bindinput ="noteInput" value="{{note}}" class="input"></input>
         </view>
+  <button class="btn" bindtap="add">继续添加</button>
+    <button form-type="submit" class="btn">保存</button>
 
-    <button class="btn" bindtap="add">继续添加</button>
-    <button class="btn" bindtap="save">保存</button>
+    </form>
 </view>

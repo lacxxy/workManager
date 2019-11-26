@@ -8,7 +8,8 @@
     <scroll-view scroll-y="true" class="index-bottom">
       <view class="bottom">
         <work-item qq:for="{{work}}" workData="{{item}}"></work-item>
-        <text class="more" bindtap="more">加载更多</text>
+        <loading qq:if="{{loading}}"></loading>
+        <text class="more" bindtap="more" qq-else>加载更多</text>
       </view>
     </scroll-view>
 

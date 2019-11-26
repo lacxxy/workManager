@@ -4,6 +4,7 @@
     "head":"/components/index/head/head",
     "time-table":"/components/index/timeTable/timeTable",
     "work-item":"/components/index/work-item/work-item",
-    "proj-block":"/components/index/proj-block/proj-block"
+    "proj-block":"/components/index/proj-block/proj-block",
+    "loading":"/components/common/loading/loading"
   }
 }

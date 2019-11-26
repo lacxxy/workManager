@@ -3,13 +3,27 @@
     display:flex;
     flex-direction:column;
     positon:relative;
+    overflow:hidden;
+}
+.index-bottom {
+  display: flex;
+  color: black;
+  flex-direction: column;
+  align-items:center;
+  height:100%;
+  overflow-y:scroll;
+}
+.more{
+  color:blue;
+  text-align:center;
+  font-size:30rpx;
 }
 .work-area{
-    flex:1;
+    min-height:100%;
     display:flex;
     flex-direction:column;
-    justify-content:space-around;
     align-items:center;
+    overflow-y:scroll;
 }
 .page{
     width:200rpx;
@@ -20,4 +34,21 @@
     right:30rpx;
     width:100rpx;
     height:100rpx;
+}
+.dark{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.logo{
+    width:600rpx;
+    height:600rpx;
+    opacity:.5;
+}
+.please{
+    margin-top:35rpx;
+    font-size:55rpx;
+    color:black;
 }

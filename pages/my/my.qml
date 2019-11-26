@@ -3,7 +3,7 @@
         <view class="mes">
             <text>{{mes.name}}</text>
             <text class="smaller">{{mes.colleage}}</text>
-            <text class="smaller">{{mes.major}}{{mes.place}}班</text>
+            <text class="smaller">{{mes.grade}}级{{mes.major}}{{mes.place}}班</text>
         </view>
 
         <view class="avatar">

@@ -31,13 +31,6 @@ Component({
                         console.log(res.errMsg)
                     }
                 })
-            }
-            else if (this.properties.arr.url == 'about') {
-                qq.showModal({
-                    title: '福州大学',
-                    content: '阿布，蔡志斌，陈郑铧 仅供交流学习',
-                    showCancel: false
-                })
             } else if (this.properties.arr.url == 'clear') {
                 qq.clearStorage({
                     success() {

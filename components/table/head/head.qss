@@ -1,0 +1,25 @@
+.head{
+    background:#FF4C4D;
+    display:flex;
+    justify-content:center;
+}
+.item{
+    width:33%;
+    height:100rpx;
+    background:#FF4C4D;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.icon{
+    width:85%;
+    position:absolute;
+    transition-duration: .3s;
+}
+.title{
+    font-size:80%;
+    font-weight:400;
+    position:relative;
+    z-index:2;
+}

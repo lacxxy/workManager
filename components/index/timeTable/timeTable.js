@@ -28,7 +28,6 @@ Component({
     },
     methods: {
         getindex() {
-            console.log(this.properties.nowIndex)
             this.setData({
                 nowIndex: this.properties.nowIndex
             })
