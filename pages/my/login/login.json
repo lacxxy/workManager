@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "list-item":"/components/my/list-item/list-item"
-  }
+    "list-item": "/components/my/list-item/list-item"
+  },
+  "enablePullDownRefresh": false
 }

@@ -53,3 +53,6 @@
     font-size:55rpx;
     color:black;
 }
+.swp{
+    height:100%;
+}

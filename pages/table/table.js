@@ -44,6 +44,9 @@ Page({
     random(lower, upper) {
         return Math.floor(Math.random() * (upper - lower)) + lower;
     },
+    onPullDownRefresh() {
+        this.onLoad();
+    },
     onLoad() {
         let that = this;
         qq.request({
@@ -70,16 +73,17 @@ Page({
                     d[i - 1].forEach(item => {
                         let n = parseInt(item.fromTime / 2);
                         arr[item.day - 1][n] = item;
-                        arr[item.day - 1][n].color = that.data.colorArray[that.random(0,7)];
+                        arr[item.day - 1][n].color = that.data.colorArray[that.random(0, 7)];
                     })
 
                     d[i - 1] = arr;
                 }
-                let num = qq.getStorageSync('curWeek')-1;
+                let num = qq.getStorageSync('curWeek') - 1;
                 that.setData({
                     course: d,
                     nowIndex: num
                 })
+                qq.stopPullDownRefresh();
             }
         })
     }

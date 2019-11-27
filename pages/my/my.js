@@ -30,7 +30,11 @@ Page({
       }
     ]
   },
-  onShow: function () {
+  onPullDownRefresh(){
+    this.onLoad();
+    qq.stopPullDownRefresh();
+  },
+  onLoad: function () {
     let that=this;
     qq.request({
       url: 'https://xbb.fudaquan.cn:8080/user',
@@ -40,7 +44,6 @@ Page({
       },
       success:function(res){
         let data=res.data.data;
-        console.log(data);
         that.setData({
           mes:data
         })

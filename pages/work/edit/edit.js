@@ -5,22 +5,23 @@ Page({
         content: [],
         contentArray: [],
         courseArray: [],
+        course: [],
         date: '',
         array: [
         ],
+        relaCourse: '',
         index: 0,
         note: '',
         id: 0,
-        formid:0
+        formid: 0
     },
     onLoad(option) {
         let that = this;
         if (option.content) {
             let data = JSON.parse(JSON.parse(option.content));
             this.setData({
-                content: data.data.join('')+'\n\n'
+                content: data.data.join('') + '\n\n'
             });
-            console.log(option.content)
             let time = util.formatDate(new Date());
             let date = util.getDates(1, time)[0].time;
             date = date.replace(/\//g, '-');
@@ -30,7 +31,8 @@ Page({
             this.getCourse();
         } else if (option.id) {
             this.setData({
-                id: option.id
+                id: option.id,
+
             })
             this.getData()
         }
@@ -61,8 +63,10 @@ Page({
                     array: d,
                     content: c,
                     note: r.note,
-                    date: t
+                    date: t,
+                    course: [{ courseId: r.relaCourse.split('-')[0] }]
                 })
+                console.log(that.data)
             }
         })
     },
@@ -75,20 +79,20 @@ Page({
                 'sessionId': qq.getStorageSync('sessionId')
             },
             success(res) {
-                console.log(res.data.data)
                 let d = res.data.data.map(item => {
                     return item.name
                 })
                 that.setData({
                     array: d,
-                    courseArray: res.data.data
+                    courseArray: res.data.data,
+                    course: res.data.data
                 })
             }
         })
     },
     bindDateChange(val) {
         this.setData({
-            date: `${val.detail.value} ${new Date().getHours()}`
+            date: `${val.detail.value}`
         })
     },
     bindCourseChange(val) {
@@ -146,29 +150,39 @@ Page({
         }
     },
     save(e) {
+        let that = this;
         this.setData({
-            formid:e.detail.formId
+            formid: e.detail.formId
+        })
+        var endTime = that.data.date;
+        var today = qq.getStorageSync('schoolOpenDay');
+        let t = util.timeMinus(endTime, today);
+        console.log(this.data.course)
+        this.setData({
+            relaCourse: `${this.data.course[this.data.index].courseId}-${parseInt(t / 7) + 1}-${util.getWeekday(today)}`
         })
         this.data.id == 0 ? this.creat() : this.edit();
     },
     creat() {
         let that = this;
         let cont;
-        //this.data.contentArray.push(this.data.content);
         console.log(that.data.content)
         if (that.data.content.length == 1) {
             cont = that.data.content;
         } else {
             cont = that.data.content.split('\n\n');
+            cont.filter(item => {
+                return item != ""
+            })
         }
         let d = {
             "openId": qq.getStorageSync('openId'),
             "theme": that.data.array[that.data.index],
             "content": JSON.stringify(cont),
             "note": that.data.note,
-            'endTime': that.data.date,
-            'formId':that.data.formid
-            //'relaCourse':`${that.data.courseArray[that.data.index].courseId}-${}`
+            'endTime': `${that.data.date} ${new Date().getHours()}`,
+            'formId': that.data.formid,
+            'relaCourse': that.data.relaCourse
         };
         if (that.data.id !== 0) {
             d.taskId = that.data.id
@@ -182,8 +196,7 @@ Page({
             },
             formData: d,
             success(res) {
-                let r=JSON.parse(res.data);
-                console.log(r)
+                let r = JSON.parse(res.data);
                 if (r.code == 0) {
                     qq.showToast({
                         title: '成功'
@@ -196,7 +209,9 @@ Page({
     edit() {
         let that = this;
         let arr = that.data.content.split('\n\n');
-
+        arr=arr.filter(item => {
+            return item.length != 0 
+        })
         qq.request({
             url: 'https://xbb.fudaquan.cn:8080/tasks/task',
             header: {
@@ -211,7 +226,8 @@ Page({
                     content: JSON.stringify(arr),
                     note: that.data.note,
                     theme: that.data.array[that.data.index],
-                    endTime: that.data.date,
+                    endTime: `${that.data.date} ${new Date().getHours()}`,
+                    relaCourse: that.data.relaCourse
                 })
             },
             success(res) {

@@ -31,7 +31,6 @@ Page({
   getDate: function () {
     let time = util.formatDate(new Date());
     let date = util.getDates(1, time);
-    console.log(date[0])
     this.setData({
       today: date[0]
     })
@@ -91,7 +90,16 @@ Page({
     })
   },
 
-  onShow: function () {
+  onLoad(){
+    qq.showShareMenu({
+      showShareItems:['qq','qzone','wechatFriends','wechatMoment']
+    })
+    this.load()
+  },
+  onPullDownRefresh(){
+    this.load();
+  },
+  load: function () {
     var that = this;
     that.getDate();
     that.getWhether();
@@ -118,6 +126,7 @@ Page({
             qq.setStorageSync('sessionId', res.sessionId);
             qq.setStorageSync('openId', res.openId);
             qq.setStorageSync('curWeek', res.curWeek);
+            qq.setStorageSync('schoolOpenDay',res.schoolOpenDay);
             if (!res.isLogin) {
               qq.showToast({
                 title:"请先进行身份认证"
@@ -166,7 +175,8 @@ Page({
                 }
                 that.setData({
                   work: res.data.data
-                })
+                });
+                qq.stopPullDownRefresh()
               }
             })
           }
@@ -178,5 +188,4 @@ Page({
       }
     })
   },
-
 })

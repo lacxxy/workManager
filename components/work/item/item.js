@@ -11,7 +11,9 @@ Component({
     methods:{
         calc(){
             let d=JSON.parse(this.properties.work.content);  
+            console.log(d)
             d.forEach(item=>{
+                console.log(item)
                 item.replace(/[\r\n]/g,"")
             });
             this.setData({

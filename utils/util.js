@@ -32,6 +32,15 @@ function dateLater(dates, later) {
   dateObj.index=day
   return dateObj;
 }
+function getWeekday(d){
+  let arr=d.split('-');
+  let result=[7,1,2,3,4,5,6];
+  let date=new Date();
+  date.setFullYear(arr[0]);
+  date.setMonth(arr[1]);
+  date.setDate(arr[2]);
+  return result[date.getDay()];
+}
 function timeMinus(d1,d2){
   var strSeparator = "-"; //日期分隔符
        var oDate1;
@@ -47,5 +56,6 @@ function timeMinus(d1,d2){
 module.exports = {
   formatDate: formatDate,
   getDates: getDates,
+  getWeekday:getWeekday,
   timeMinus:timeMinus
 }

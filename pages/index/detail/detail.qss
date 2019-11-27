@@ -27,6 +27,10 @@
     border-bottom:2rpx white solid;
     margin-bottom:20rpx;
 }
+.item{
+    display:block;
+    margin:25rpx 0;
+}
 .note{
     margin:20rpx 0;
 }

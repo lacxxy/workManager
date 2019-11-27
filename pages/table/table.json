@@ -1,5 +1,8 @@
 {
   "usingComponents": {
       "head":"../../components/table/head/head"
+  },
+  "window":{
+    "enablePullDownRefresh":true
   }
 }

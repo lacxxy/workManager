@@ -1,14 +1,25 @@
 Page({
   data: {
     work: [],
+    workArray: [],
     index: 0,
     loading: false
   },
-  onShow: function () {
+  onLoad: function () {
     let that = this;
-    that.getWork(0)
+    that.getWork(2);
+    that.getWork(1);
+    that.getWork(0);
+    qq.stopPullDownRefresh();
   },
-
+  onPullDownRefresh(){
+    this.onLoad()
+  },
+  change(e) {
+    this.setData({
+      index: e.detail.current
+    })
+  },
   more: function () {
     let that = this;
     that.setData({
@@ -42,33 +53,7 @@ Page({
       }
     })
   },
-  getDate() {
-    qq.request({
-      url: 'https://xbb.fudaquan.cn:8080/tasks/day',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        'sessionId': qq.getStorageSync('sessionId')
-      },
-      data: {
-        type: 0,
-        offset: 0,
-        limit: 4
-      },
-      success(res) {
-        let d = res.data.data;
-        let l = d.length;
-        for (let i = 0; i < l; i++) {
-          d.push({
-            theme: '暂无',
-            content: [],
-          })
-        }
-        that.setData({
-          work: d
-        })
-      }
-    })
-  },
+
   routego() {
     let chooseImage = new Promise((resolve, reject) => {
       qq.chooseImage({
@@ -94,9 +79,9 @@ Page({
         },
         success: function (res) {
           qq.hideLoading();
-          if(JSON.parse(res.data).code==-1){
+          if (JSON.parse(res.data).code == -1) {
             qq.showToast({
-              title:"网络问题，请重试。。。"
+              title: "网络问题，请重试。。。"
             });
             return;
           }
@@ -120,23 +105,32 @@ Page({
         type: 0,
         offset: 0,
         limit: 4,
-        type:type
+        type: type
       },
       success(res) {
         let d = res.data.data;
+        let workArray = that.data.workArray;
+        workArray[type] = d;
         that.setData({
-          work: d
+          work: d,
+          workArray: workArray
         })
       }
     })
   },
-  allWork(){
-    this.getWork(0)
+  allWork() {
+    this.setData({
+      index:0
+    })
   },
   notDone() {
-    this.getWork(1);
+    this.setData({
+      index:1
+    })
   },
   done() {
-    this.getWork(2);
+    this.setData({
+      index:2
+    })
   }
 })

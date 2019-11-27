@@ -14,7 +14,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ff4c4d",
     "navigationBarTitleText": "福大小本本",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":true
   },
   "tabBar": {
     "color": "#000000",

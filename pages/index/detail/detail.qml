@@ -1,9 +1,9 @@
 <view class="detail">
 <view class="head">
         <text class="title">{{title}}</text><text class="time">{{time}}</text>
-        <textarea maxlength="-1" class="content" value="{{content}}">
-            
-        </textarea>
+        <view class="content">
+            <text class="item" qq:for="{{contArray}}">{{item}}</text>
+        </view>
         <text class="note">备注:{{note}}</text>
     </view>
 
