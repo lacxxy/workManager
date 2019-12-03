@@ -3,21 +3,43 @@ Page({
     work: [],
     workArray: [],
     index: 0,
+    arrIndex: [0, 0, 0],
     loading: false
   },
+  onShareAppMessage() {
+    return {
+      imageUrl: "https://xbb.fudaquan.cn:8080/images/app/logo.jpg",
+    }
+  },
   onLoad: function () {
+    qq.showLoading({
+      title: '加载中...'
+    })
+    qq.showShareMenu({
+      showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment']
+    })
+    this.setData({
+      arrIndex: [0, 0, 0]
+    })
     let that = this;
     that.getWork(2);
     that.getWork(1);
     that.getWork(0);
     qq.stopPullDownRefresh();
+    qq.hideLoading()
   },
-  onPullDownRefresh(){
+  f5() {
+    this.onLoad();
+  },
+  onPullDownRefresh() {
     this.onLoad()
+  },
+  test(e) {
+    console.log(e)
   },
   change(e) {
     this.setData({
-      index: e.detail.current
+      index: e.detail.current,
     })
   },
   more: function () {
@@ -25,7 +47,7 @@ Page({
     that.setData({
       loading: true
     })
-    that.data.index++;
+    that.data.arrIndex[that.data.index]++;
     qq.request({
       url: 'https://xbb.fudaquan.cn:8080/tasks/id',
       header: {
@@ -33,18 +55,19 @@ Page({
         'sessionId': qq.getStorageSync('sessionId')
       },
       data: {
-        type: 0,
-        offset: that.data.index * 4,
+        type: that.data.index,
+        offset: that.data.arrIndex[that.data.index] * 4,
         limit: 4
       },
       success(res) {
         let d = res.data.data;
         let l = d.length;
-        if (l == 0) { that.data.index--; }
+        if (l == 0) { that.data.arrIndex[that.data.index]++; }
         else {
-          let arr = (that.data.work).concat(res.data.data);
+          let arr = that.data.workArray;
+          arr[that.data.index] = arr[that.data.index].concat(res.data.data)
           that.setData({
-            work: arr
+            workArray: arr,
           })
         }
         that.setData({
@@ -66,30 +89,8 @@ Page({
       })
     })
     chooseImage.then(res => {
-      qq.showLoading({
-        title: '加速上传中。。。',
-      })
-      qq.uploadFile({
-        url: 'https://xbb.fudaquan.cn:8080/PhotoToText',
-        filePath: res.tempFilePaths[0],
-        name: 'photo',
-        header: {
-          "Content-Type": "multipart/form-data",
-          'sessionId': qq.getStorageSync('sessionId')
-        },
-        success: function (res) {
-          qq.hideLoading();
-          if (JSON.parse(res.data).code == -1) {
-            qq.showToast({
-              title: "网络问题，请重试。。。"
-            });
-            return;
-          }
-          let d = res.data;
-          qq.navigateTo({
-            url: `edit/edit?content=${JSON.stringify(res.data)}`
-          })
-        }
+      qq.navigateTo({
+        url: `crop/image-cropper?src=${res.tempFilePaths[0]}`,
       })
     })
   },
@@ -120,17 +121,17 @@ Page({
   },
   allWork() {
     this.setData({
-      index:0
+      index: 0
     })
   },
   notDone() {
     this.setData({
-      index:1
+      index: 1
     })
   },
   done() {
     this.setData({
-      index:2
+      index: 2
     })
   }
 })

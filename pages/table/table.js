@@ -10,13 +10,13 @@ Page({
         weekArray: [
             1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
         ],
-        nullArray: [
+        /*nullArray: [
             { fromTime: 1, toTime: 2 },
             { fromTime: 3, toTime: 4 },
             { fromTime: 5, toTime: 6 },
             { fromTime: 7, toTime: 8 },
             { fromTime: 9, toTime: 11 },
-        ],
+        ],*/
         colorArray: [
             '#ABD696',
             '#01b8ee',
@@ -47,7 +47,15 @@ Page({
     onPullDownRefresh() {
         this.onLoad();
     },
+    onShareAppMessage() {
+        return {
+            imageUrl: "https://xbb.fudaquan.cn:8080/images/app/logo.jpg",
+        }
+    },
     onLoad() {
+        qq.showShareMenu({
+            showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment']
+        })
         let that = this;
         qq.request({
             url: 'https://xbb.fudaquan.cn:8080/courses/week',
@@ -72,13 +80,26 @@ Page({
                     let arr = [[{}, {}, {}, {}, {}], [{}, {}, {}, {}, {}], [{}, {}, {}, {}, {}], [{}, {}, {}, {}, {}], [{}, {}, {}, {}, {}], [{}, {}, {}, {}, {}], [{}, {}, {}, {}, {}]];
                     d[i - 1].forEach(item => {
                         let n = parseInt(item.fromTime / 2);
-                        arr[item.day - 1][n] = item;
+                        if (item.type == 0) {
+                            if (item.toTime - item.fromTime > 1 && item.fromTime < 9) {
+                                arr[item.day - 1].splice(n, 1);
+                            }
+                            arr[item.day - 1][n] = item;
+                        } else {
+                            if ((i - 1) % 2 == item.type - 1) {
+                                if (item.toTime - item.fromTime > 1 && item.fromTime < 9) {
+                                    arr[item.day - 1].splice(n, 1);
+                                }
+                                arr[item.day - 1][n] = item;
+                            }
+                        }
                         arr[item.day - 1][n].color = that.data.colorArray[that.random(0, 7)];
                     })
 
                     d[i - 1] = arr;
                 }
                 let num = qq.getStorageSync('curWeek') - 1;
+                console.log(d)
                 that.setData({
                     course: d,
                     nowIndex: num

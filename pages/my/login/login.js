@@ -14,6 +14,11 @@ Component({
         pwd: e.detail.value
       })
     },
+    onShareAppMessage() {
+      return {
+        imageUrl: "https://xbb.fudaquan.cn:8080/images/app/logo.jpg",
+      }
+    },
     login() {
       let that = this;
       qq.request({
@@ -38,7 +43,9 @@ Component({
               title: '认证成功',
               duration: 2000
             })
-            qq.navigateBack()
+            qq.reLaunch({
+              url: '/pages/index/index'
+            })
           }
         }
       })

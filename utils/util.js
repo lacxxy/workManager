@@ -50,7 +50,8 @@ function timeMinus(d1,d2){
        oDate2= d2.split(strSeparator);
        var strDateS = new Date(oDate1[0], oDate1[1]-1, oDate1[2]);
        var strDateE = new Date(oDate2[0], oDate2[1]-1, oDate2[2]);
-       iDays = parseInt(Math.abs(strDateS - strDateE ) / 1000 / 60 / 60 /24);
+       iDays = parseInt((strDateS - strDateE )/ 1000 / 60 / 60 /24);
+       if(iDays<0)return 0;
        return iDays;
 }
 module.exports = {

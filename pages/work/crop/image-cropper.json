@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "image-cropper": "/components/common/cut/image-cropper"
+  },
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "裁剪图片",
+  "disableScroll": true
+}

@@ -8,7 +8,8 @@
     "pages/work/edit/edit",
     "pages/index/detail/detail",
     "pages/my/func/func",
-    "pages/my/about/about"
+    "pages/my/about/about",
+    "pages/work/crop/image-cropper"
   ],
   "window": {
     "backgroundTextStyle": "light",

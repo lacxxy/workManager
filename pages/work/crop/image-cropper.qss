@@ -1,0 +1,19 @@
+.submit {
+  position: absolute;
+  bottom: 20rpx;
+  width: 200rpx;
+  height: 80rpx;
+  color: white;
+  background: rgb(253, 140, 140);
+  display: flex;
+  justify-content: center;
+  margin-left: calc(50vw - 100rpx);
+  align-items: center;
+  z-index: 1000;
+}
+.submit:hover {
+  background: rgb(253, 120, 120);
+}
+.submit:active {
+  background: rgb(253, 120, 120);
+}

@@ -5,6 +5,6 @@
       "loading":"../../../components/common/loading/loading"
   },
   "window":{
-    "enablePullDownRefresh":true
+    "enablePullDownRefresh":false
   }
 }

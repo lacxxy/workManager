@@ -1,6 +1,6 @@
 Page({
   data: {
-    mes:{
+    mes: {
 
     },
     menu: [
@@ -10,42 +10,50 @@ Page({
       },
       {
         'title': '更换配色',
-        'url':'color'
+        'url': 'color'
       },
       {
         'title': '功能介绍',
-        'url':'/pages/my/func/func'
+        'url': '/pages/my/func/func'
       },
       {
         'title': '清除缓存',
-        'url':'clear'
+        'url': 'clear'
       },
       {
         'title': '分享',
-        'url':'share'
+        'url': 'share'
       },
       {
         'title': '关于我们',
-        'url':'/pages/my/about/about'
+        'url': '/pages/my/about/about'
       }
     ]
   },
-  onPullDownRefresh(){
+  onPullDownRefresh() {
+    qq.showShareMenu({
+      showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment']
+    })
     this.onLoad();
     qq.stopPullDownRefresh();
   },
+  onShareAppMessage() {
+    return {
+      imageUrl: "https://xbb.fudaquan.cn:8080/images/app/logo.jpg",
+    }
+  },
   onLoad: function () {
-    let that=this;
+    let that = this;
     qq.request({
       url: 'https://xbb.fudaquan.cn:8080/user',
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
         'sessionId': qq.getStorageSync('sessionId')
       },
-      success:function(res){
-        let data=res.data.data;
+      success: function (res) {
+        let data = res.data.data;
         that.setData({
-          mes:data
+          mes: data
         })
       }
     })

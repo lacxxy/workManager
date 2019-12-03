@@ -22,7 +22,13 @@ Page({
     let d = that.data.course;
     let arr = [[], [], [], [], [], [], []];
     d.forEach(item => {
-      arr[item.day - 1].push(item);
+      if (item.type == 0) {
+        arr[item.day - 1].push(item);
+      } else {
+        if ((qq.getStorageSync('curWeek') - 1) % 2 == item.type - 1) {
+          arr[item.day - 1].push(item);
+        }
+      }
     })
     that.setData({
       course: arr
@@ -31,6 +37,9 @@ Page({
   getDate: function () {
     let time = util.formatDate(new Date());
     let date = util.getDates(1, time);
+    if (date[0].index == 0) {
+      date[0].index = 7
+    }
     this.setData({
       today: date[0]
     })
@@ -90,13 +99,18 @@ Page({
     })
   },
 
-  onLoad(){
+  onLoad() {
     qq.showShareMenu({
-      showShareItems:['qq','qzone','wechatFriends','wechatMoment']
+      showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment']
     })
     this.load()
   },
-  onPullDownRefresh(){
+  onShareAppMessage() {
+    return {
+      imageUrl: "https://xbb.fudaquan.cn:8080/images/app/logo.jpg",
+    }
+  },
+  onPullDownRefresh() {
     this.load();
   },
   load: function () {
@@ -126,19 +140,16 @@ Page({
             qq.setStorageSync('sessionId', res.sessionId);
             qq.setStorageSync('openId', res.openId);
             qq.setStorageSync('curWeek', res.curWeek);
-            qq.setStorageSync('schoolOpenDay',res.schoolOpenDay);
+            qq.setStorageSync('schoolOpenDay', res.schoolOpenDay);
             if (!res.isLogin) {
-              qq.showToast({
-                title:"请先进行身份认证"
-              });
               qq.navigateTo({
-                url:'/pages/my/login/login'
+                url: '/pages/my/login/login'
               })
             }
             that.setData({
               thisWeek: res.curWeek,
             })
-            
+
             qq.request({
               url: 'https://xbb.fudaquan.cn:8080/courses/week',
               header: {

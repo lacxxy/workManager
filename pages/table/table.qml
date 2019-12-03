@@ -30,7 +30,7 @@
 
             <view class="line" qq:for="{{item}}" qq:for-item="item1">
                 <text style="font-size:80%">{{weekDay[index]}}</text>
-                <view  style="background:{{item2.color}}" qq:if="{{item2.name!=undefined}}" qq:for="{{item1}}" class="item" qq:for-item="item2">
+                <view style="background:{{item2.color}};height:{{((item2.toTime-item2.fromTime)>1&&item2.fromTime<9)?38:19}}%" qq:if="{{item2.name!=undefined}}" qq:for="{{item1}}" class="item" qq:for-item="item2">
                     <text>{{item2.name}}</text>
                     <text>{{item2.place}}</text>
                 </view>

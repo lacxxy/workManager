@@ -13,12 +13,20 @@ Page({
         index: 0,
         note: '',
         id: 0,
-        formid: 0
+        formid: 0,
+        show: false,
+        selfCourse: ''
+    },
+    onShareAppMessage() {
+        return {
+            imageUrl: "https://xbb.fudaquan.cn:8080/images/app/logo.jpg",
+        }
     },
     onLoad(option) {
+        console.log(option)
         let that = this;
         if (option.content) {
-            let data = JSON.parse(JSON.parse(option.content));
+            let data = JSON.parse(JSON.parse(decodeURIComponent(option.content)));
             this.setData({
                 content: data.data.join('') + '\n\n'
             });
@@ -51,7 +59,9 @@ Page({
             },
             success(res) {
                 let r = res.data.data;
-                let d = [r.theme];
+                let d = []
+                d.push(r.theme)
+                console.log(d)
                 let t = r.endTime.split(' ')[0];
                 let c = '';
                 let contArray = JSON.parse(r.content);
@@ -82,6 +92,7 @@ Page({
                 let d = res.data.data.map(item => {
                     return item.name
                 })
+                d.push('自定义')
                 that.setData({
                     array: d,
                     courseArray: res.data.data,
@@ -99,10 +110,24 @@ Page({
         this.setData({
             index: val.detail.value
         })
+        if (this.data.array[val.detail.value] == '自定义') {
+            this.setData({
+                show: true
+            })
+        } else {
+            this.setData({
+                show: false
+            })
+        }
     },
     noteInput(e) {
         this.setData({
             note: e.detail.value
+        })
+    },
+    courseInput(e) {
+        this.setData({
+            selfCourse: e.detail.value
         })
     },
     contentInput(e) {
@@ -124,27 +149,8 @@ Page({
                 })
             })
             chooseImage.then(res => {
-                qq.showLoading({
-                    title: '加速上传中。。。',
-                })
-                qq.uploadFile({
-                    url: 'https://xbb.fudaquan.cn:8080/PhotoToText',
-                    filePath: res.tempFilePaths[0],
-                    name: 'photo',
-                    header: {
-                        "Content-Type": "multipart/form-data"
-                    },
-                    success: function (res) {
-                        qq.hideLoading()
-                        let data = JSON.parse(res.data).data;
-                        data = data.join('');
-                        data += "\n\n";
-                        let d = that.data.content + data;
-                        console.log(d)
-                        that.setData({
-                            content: d
-                        })
-                    }
+                qq.navigateTo({
+                    url: `/pages/work/crop/image-cropper?src=${res.tempFilePaths[0]}&text=${encodeURIComponent(that.data.content)}`,
                 })
             })
         }
@@ -157,9 +163,8 @@ Page({
         var endTime = that.data.date;
         var today = qq.getStorageSync('schoolOpenDay');
         let t = util.timeMinus(endTime, today);
-        console.log(this.data.course)
         this.setData({
-            relaCourse: `${this.data.course[this.data.index].courseId}-${parseInt(t / 7) + 1}-${util.getWeekday(today)}`
+            relaCourse: that.data.selfCourse ? null : `${this.data.course[this.data.index].courseId}-${parseInt(t / 7) + 1}-${util.getWeekday(today)}`
         })
         this.data.id == 0 ? this.creat() : this.edit();
     },
@@ -177,7 +182,7 @@ Page({
         }
         let d = {
             "openId": qq.getStorageSync('openId'),
-            "theme": that.data.array[that.data.index],
+            "theme": that.data.show ? that.data.selfCourse : that.data.array[that.data.index],
             "content": JSON.stringify(cont),
             "note": that.data.note,
             'endTime': `${that.data.date} ${new Date().getHours()}`,
@@ -196,6 +201,7 @@ Page({
             },
             formData: d,
             success(res) {
+                console.log(res)
                 let r = JSON.parse(res.data);
                 if (r.code == 0) {
                     qq.showToast({
@@ -209,8 +215,8 @@ Page({
     edit() {
         let that = this;
         let arr = that.data.content.split('\n\n');
-        arr=arr.filter(item => {
-            return item.length != 0 
+        arr = arr.filter(item => {
+            return item.length != 0
         })
         qq.request({
             url: 'https://xbb.fudaquan.cn:8080/tasks/task',
@@ -225,7 +231,7 @@ Page({
                     taskId: that.data.id,
                     content: JSON.stringify(arr),
                     note: that.data.note,
-                    theme: that.data.array[that.data.index],
+                    theme: that.data.show ? that.data.selfCourse : that.data.array[that.data.index],
                     endTime: `${that.data.date} ${new Date().getHours()}`,
                     relaCourse: that.data.relaCourse
                 })

@@ -2,7 +2,7 @@
     <headBar index="{{index}}" bind:all="allWork" bind:notDone="notDone" bind:done="done"></headBar>
     <swiper class="swp" bindchange="change" current="{{index}}" interval="{{interval}}" duration="700">
         <swiper-item class="index-bottom" qq:for="{{workArray}}" qq:for-item="item">
-            <scroll-view qq:if="{{item.length!=0}}" scroll-y="true" class="index-bottom">
+            <scroll-view qq:if="{{item.length!=0}}" bindscroll="test" scroll-y class="index-bottom">
                 <view class="work-area">
                     <item qq:for="{{item}}" qq:for-item="item1" work="{{item1}}" qq:if="{{item1.taskId}}"></item>
                     <loading qq:if="{{loading}}"></loading>
@@ -16,5 +16,6 @@
             </view>
         </swiper-item>
     </swiper>
+    <image src="/assets/f5.png" class="f5" bindtap="f5"></image>
     <image src="/assets/blue-add.png" class="add" bindtap="routego"></image>
 </view>

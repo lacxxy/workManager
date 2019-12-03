@@ -20,7 +20,7 @@
     text-align:center;
     width:13%;
     flex-direction:column;
-    justify-content:space-between;
+    justify-content:space-around;
     border:4rpx white solid;
 }
 .swp{
@@ -42,7 +42,6 @@
     font-size:55%;
     overflow:hidden;
     //background:#01b8ee;
-    height:19%;
     border:1rpx white solid;
     color:white;
 }

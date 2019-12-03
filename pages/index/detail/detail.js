@@ -7,6 +7,11 @@ Page({
         note: '',
         id: ''
     },
+    onShareAppMessage() {
+        return {
+            imageUrl: "https://xbb.fudaquan.cn:8080/images/app/logo.jpg",
+        }
+    },
     onLoad(route) {
         let that = this;
         this.setData({
@@ -49,15 +54,11 @@ Page({
     rmv() {
         let that = this;
         qq.request({
-            url: 'https://xbb.fudaquan.cn:8080/tasks/task',
-            header: {
-                'sessionId': qq.getStorageSync('sessionId'),
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
+            url: `https://xbb.fudaquan.cn:8080/tasks/task?openId=${qq.getStorageSync('openId')}&taskId=${that.data.id}`,
             method: "DELETE",
-            data: {
-                openId: qq.getStorageSync('openId'),
-                taskId: that.data.id,
+            header: {
+                "content-type": "application/x-www-form-urlencoded",
+                'sessionId': qq.getStorageSync('sessionId')
             },
             success(res) {
                 if (res.data.code == 0) {
@@ -69,43 +70,13 @@ Page({
                     })
                 } else {
                     qq.showToast({
-                        title: '错误'
+                        title: data.taskId
                     });
                     qq.navigateBack()
                 }
             }
         })
     },
-    /*rmv(){
-        let that=this;
-        qq.request({
-            url:'https://xbb.fudaquan.cn:8080/tasks/task',
-            method:"DELETE",
-            header: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                'sessionId': qq.getStorageSync('sessionId')
-            },
-            data: {
-                openId: qq.getStorageSync('openId'),
-                taskId: that.data.id
-            },
-            success(res){
-                if(res.data.code==0){
-                    qq.showToast({
-                        title: '成功删除'
-                    });
-                    qq.reLaunch({
-                        url:'/pages/work/work'
-                    })
-                }else{
-                    qq.showToast({
-                        title: '错误'
-                    });
-                    qq.navigateBack()
-                }
-            }
-        })
-    },*/
     done() {
         let that = this;
         qq.request({

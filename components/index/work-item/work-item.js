@@ -34,6 +34,7 @@ Component({
                 var date = util.getDates(1, time);
                 var today = date[0].time;
                 t = util.timeMinus(endTime, today);
+                console.log(t)
             }
             d = JSON.parse(d);
             this.setData({
